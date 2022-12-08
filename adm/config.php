@@ -1,7 +1,7 @@
 <?php
 define('HOST','localhost');
 define('USER','root');
-define('PASS','');
+define('PASS','123456');
 define('BASE','formulario');
 
 $con = new mysqli(HOST,USER,PASS,BASE);

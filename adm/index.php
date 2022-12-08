@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,22 @@
 </head>
 <body>
     <form method="POST" action="">
-    <h1>Veja abaixo á lista de Reclamação ou Elogio dos Usuários</h1>
+    <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Painel Adiministrador</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="#">Listagem de usuários</a>
+        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link disabled">Disabled</a>
+      </div>
+    </div>
+  </div>
+</nav>
     </form>
 </body>
 </html>
@@ -41,8 +56,8 @@ include('config.php');
             print"<td>".$row->mensagem."</td>";
             print"<td>
                 <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?acao=excluir&id=".$row->id."';}else{false;}\" class='btn btn-danger'>Excluir</button>
+                
             </td>";
-
             print"</tr>";
         }
         print"</table>";
@@ -54,14 +69,5 @@ include('config.php');
             $sql = "DELETE  FROM formulario WHERE id=".$_REQUEST["id"];
 
             $res = $con->query($sql);
-            
-            if ($res==true) {
-                print "<script>alert('Excluido com sucesso');</script>";
-                print "<script> location.href='?page=listar';</script>";
-            }else{
-                print "<script>alert('Não foi possivel Excluir');</script>";
-                print "<script> location.href='?page=home.php';</script>";
-            }
-            break;
     }
 ?>
